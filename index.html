@@ -6,28 +6,28 @@
     <style>
         /* Základné resetovanie a typografia */
         body {
-            font-family: 'Arial', sans-serif; /* Použitie bežného, čistého fontu */
+            font-family: 'Arial', sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 20px;
-            background-color: #f4f4f9; /* Svetlé pozadie */
-            color: #333; /* Tmavý text pre lepšiu čitateľnosť */
+            background-color: #f4f4f9;
+            color: #333;
         }
 
         /* Kontajner pre centrovanie obsahu */
         .container {
             max-width: 800px;
-            margin: 0 auto; /* Centrovanie kontajnera */
-            background-color: #ffffff; /* Biele pozadie pre obsah */
+            margin: 0 auto;
+            background-color: #ffffff;
             padding: 30px;
-            border-radius: 8px; /* Zaoblené rohy */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Jemný tieň */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         /* Hlavička */
         h1 {
             text-align: center;
-            color: #0056b3; /* Modrá farba pre titulok */
+            color: #0056b3;
             border-bottom: 2px solid #0056b3;
             padding-bottom: 10px;
             margin-top: 0;
@@ -45,15 +45,15 @@
         /* Tučný text (názvy polí) */
         b {
             color: #555;
-            display: inline-block; /* Pre lepšie zarovnanie a odstup */
-            min-width: 150px; /* Zabezpečí, že hodnoty budú začínať približne na rovnakom mieste */
+            display: inline-block;
+            min-width: 150px;
         }
 
         /* Názov projektu */
         #project-title p {
             font-size: 1.2em;
             font-weight: bold;
-            color: #007bff; /* Iná modrá pre názov projektu */
+            color: #007bff;
             border-left-color: #007bff;
             background-color: #e6f0ff;
             text-align: center;
@@ -62,7 +62,7 @@
 
         /* Opis a cieľ */
         #description p {
-            border-left-color: #28a745; /* Zelená pre opis/cieľ */
+            border-left-color: #28a745;
             background-color: #e9fff0;
         }
 
@@ -72,6 +72,15 @@
             border-left-color: #6c757d;
             background-color: #f0f0f0;
             padding: 10px;
+        }
+
+        /* Zimný report sekcia */
+        #winter-report p {
+            text-align: center;
+            border-left-color: #dc3545; /* Červená pre report */
+            background-color: #fff5f5;
+            padding: 15px;
+            font-weight: bold;
         }
 
         a {
@@ -106,14 +115,20 @@
 
         <div id="description">
             <p>
-                <b>Názov: Game Recommender AI <br>
-		Cieľ: Vyvinúť desktopovú aplikáciu, ktorá pre danú konfiguráciu používateľského PC a/alebo pre vstupný popis (alebo príklad hry) vráti zoradený zoznam hier, ktoré: budú bežať na tomto PC (alebo s pravdepodobne prijateľnou úrovňou výkonu) a sú sémanticky/tematicky podobné zadanému hre alebo obsahujú zadané dejové/vizuálne atribúty (napríklad: „hrdina nosí klobúk“, „tragická dejová línia“, „melancholický soundtrack“).
-		</p>
+                <b>Názov:</b> Game Recommender AI <br>
+                <b>Cieľ:</b> Vyvinúť desktopovú aplikáciu, ktorá pre danú konfiguráciu používateľského PC a/alebo pre vstupný popis (alebo príklad hry) vráti zoradený zoznam hier, ktoré: budú bežať na tomto PC (alebo s pravdepodobne prijateľnou úrovvňou výkonu) a sú sémanticky/tematicky podobné zadanému hre alebo obsahujú zadané dejové/vizuálne atribúty (napríklad: „hrdina nosí klobúk“, „tragická dejová línia“, „melancholický soundtrack“).
+            </p>
         </div>
 
         <div id="git-repo">
             <p>
                 <b>Git repozitár:</b> <a href="https://github.com/EgorovDRuslan/yearly_project" target="_blank">github.com/EgorovDRuslan/yearly_project</a>
+            </p>
+        </div>
+
+        <div id="winter-report">
+            <p>
+                <b>Dokumentácia:</b> <a href="https://github.com/EgorovDRuslan/yearly_project/blob/main/zimny_report.html" target="_blank">Zimný report projektu</a>
             </p>
         </div>
     </div>

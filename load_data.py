@@ -4,7 +4,12 @@ import sqlite3
 import re
 
 URL = 'https://api.rawg.io/api/games/'
-API = '755e964103a14e4f94dad0a1a06e9947'
+try:
+    with open('RAWG_API_KEY', 'r') as f:
+        API = f.read().strip()
+except FileNotFoundError:
+    print("Error: RAWG_API_KEY file not found.")
+    API = ""
 
 def clean_unwanted(text):
     if not text:
@@ -40,9 +45,10 @@ def clean_platforms(game):
 
     return json.dumps(cleaned_platforms_list)
 
-def start(data):
-    games = data['results']
-
+def start(data, requests_left, db_path="games.db"):
+    games = data.get('results', [])
+    requests_used = 0
+    
     COLUMNS = [
         'id', 'name', 'genre', 'description', 'date_of_publishing', 
         'tags', 'tba', 'rating', 'ratings', 'ratings_count', 
@@ -51,11 +57,25 @@ def start(data):
         'stores', 'esrb_rating'
     ]
 
+    connection = sqlite3.connect(db_path)
+    cursor = connection.cursor()
+
     all_game_tuples = []
 
     for game in games:
-        detail_url = f"{URL}{game['id']}"
+        if requests_used >= requests_left:
+            break
+
+        game_id = game['id']
+        
+        # Перевірка чи гра вже є в базі, щоб не витрачати запит на деталі
+        cursor.execute("SELECT id FROM games WHERE id = ?", (game_id,))
+        if cursor.fetchone() is not None:
+            continue
+
+        detail_url = f"{URL}{game_id}"
         res = requests.get(detail_url, params={'key': API})
+        requests_used += 1
         
         if res.status_code == 200:
             description = res.json().get('description', 'No description available')
@@ -88,10 +108,12 @@ def start(data):
             'esrb_rating': game['esrb_rating']['name'] if game.get('esrb_rating') else "Not Rated"
         }
 
-        current_game_tuple = tuple(game_map[col] for col in COLUMNS)
+        current_game_tuple = tuple(game_map.get(col) for col in COLUMNS)
         all_game_tuples.append(current_game_tuple)
-    connection = sqlite3.connect("games.db")
-    cursor = connection.cursor()
-    cursor.executemany("INSERT OR IGNORE INTO games VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", all_game_tuples)
-    connection.commit()
+
+    if all_game_tuples:
+        cursor.executemany("INSERT OR IGNORE INTO games VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", all_game_tuples)
+        connection.commit()
+        
     connection.close()
+    return requests_used

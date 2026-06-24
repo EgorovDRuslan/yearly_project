@@ -1,0 +1,257 @@
+Screen {
+    background: $background;
+}
+
+#sidebar {
+    width: 45;
+    dock: left;
+    height: 100%;
+    padding: 1 2;
+    background: $background;
+    border-right: round $primary-muted;
+}
+
+#main-area {
+    width: 100%;
+    height: 100%;
+    padding: 1 2;
+    background: $background;
+}
+
+#top-bar {
+    height: auto;
+    margin-bottom: 1;
+    align-horizontal: right;
+}
+
+#sort-select {
+    width: 30;
+}
+
+.sidebar-label {
+    text-style: bold;
+    color: $text;
+    margin-top: 1;
+    margin-bottom: 1;
+}
+
+/* Posting-style Buttons */
+Button, Button.-primary, Button.-error, Button.-success, Button.-warning {
+    border: round $primary-muted;
+    background: transparent;
+    color: $primary-lighten-2;
+    text-style: bold;
+    height: 3;
+}
+
+Button:hover, Button.-primary:hover {
+    background: transparent !important;
+    border: round $success !important;
+    color: $success !important;
+}
+
+Button.-error {
+    background: transparent;
+    border: round $error-muted;
+    color: $error-lighten-2;
+}
+
+Button.-error:hover {
+    background: transparent !important;
+    border: round $error !important;
+    color: $error !important;
+}
+
+#reset-button {
+    margin-top: 1;
+    width: 100%;
+    margin-right: 2;
+}
+
+/* Custom Game Card styling */
+GameCard {
+    height: auto;
+    padding: 1 2;
+    background: $surface;
+    border: round $primary-muted;
+    margin-bottom: 1;
+}
+
+ListItem {
+    background: transparent;
+    padding: 0;
+}
+
+ListItem:focus > GameCard {
+    border: round $primary;
+    background: $panel;
+}
+
+.card-title {
+    color: $text;
+    text-style: bold;
+}
+
+.card-meta {
+    color: $text-muted;
+    margin-top: 1;
+}
+
+.card-genre {
+    color: $text-muted;
+    margin-top: 1;
+}
+
+Header {
+    background: $primary;
+    color: $background;
+    height: 1 !important;
+    max-height: 1 !important;
+}
+
+Footer {
+    background: $background;
+    color: $text-muted;
+}
+
+Checkbox {
+    background: transparent;
+    border: none;
+}
+
+.hardware-text {
+    color: $success;
+    margin-bottom: 1;
+    height: auto;
+    width: 100%;
+    border: round $primary-muted;
+    padding: 1 2;
+}
+
+Input, Select {
+    border: round $primary-muted;
+}
+
+#scan-hardware-btn {
+    width: 100%;
+    margin-bottom: 1;
+    margin-right: 2;
+}
+
+.detail-scroll {
+    padding: 1 4;
+}
+
+Markdown {
+    background: transparent;
+    color: $text;
+}
+
+MarkdownH2 {
+    text-style: bold;
+    color: $primary;
+    border: none;
+    border-bottom: none;
+    padding: 1 0;
+}
+
+#genre-checkboxes {
+    height: auto;
+}
+
+#chat-container {
+    width: 100%;
+    height: 100%;
+    padding: 1 2;
+    background: $background;
+    layers: base top;
+}
+
+#chat-history {
+    height: 1fr;
+    border: round $primary-muted;
+    background: $background;
+    padding: 1 2;
+    margin-bottom: 1;
+}
+
+#chat-input-area {
+    height: 3;
+    width: 100%;
+}
+
+#chat-input {
+    width: 1fr;
+    margin-right: 1;
+}
+
+#send-msg-btn {
+    width: 15;
+}
+
+.chat-msg {
+    margin-bottom: 1;
+    padding: 1 2;
+    background: $surface;
+    border: round $primary-muted;
+}
+
+.chat-user {
+    color: $text;
+    border-left: thick $primary;
+}
+
+.chat-assistant {
+    color: $success;
+    border-left: thick $secondary;
+}
+
+.chat-user-name {
+    color: $primary;
+    margin-top: 1;
+}
+
+.chat-ai-name {
+    color: $secondary;
+    margin-top: 1;
+}
+
+#chat-header {
+    height: auto;
+    width: 100%;
+    margin-bottom: 1;
+    dock: top;
+}
+
+#chat-session-select {
+    width: 1fr;
+}
+
+#delete-session-btn {
+    width: 7;
+    margin-left: 1;
+}
+
+/* Scrollbar tweaks */
+ScrollBar {
+    background: $background;
+    width: 1;
+}
+ScrollBar > .scrollbar--slider {
+    background: $primary-muted;
+}
+ScrollBar > .scrollbar--slider:hover {
+    background: $primary;
+}
+
+ThemeSelectionScreen {
+    align: center middle;
+    background: $background 50%;
+}
+
+#theme-modal-list {
+    width: 40;
+    height: 15;
+    border: thick $primary;
+    background: $surface;
+}
